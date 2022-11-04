@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# ojt-tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Development
 
-## Available Scripts
+Clone repo and install node modules
 
-In the project directory, you can run:
+to start just development backend server run command
 
-### `npm start`
+```bash
+npm run server
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+to start just development frontend client run command
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm run client
+```
 
-### `npm test`
+this repo also supports running both scripts in parallel using Concurrently dependency
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+to start full-stack development run command
 
-### `npm run build`
+```bash
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+this repo also need a `.env`, contact admin for file
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project goals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1- Tracks progress of each candidate from start of OJT to completion (6-week period).
 
-### `npm run eject`
+2- Currently the Transition Coordinator uses a spreadsheet for this purpose. Others who support each candidate have their own way to keep track. Objective: Get everyone on same page by creating a platform where each stakeholder has access to the app to create, retrieve, and update info pertaining to each candidate.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3- Populate DB with company's entire staff so by simply beginning to type staff member's name, the full name appears. Only active employees should be listed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4- Create modal for userlogin, password (see Televerde's example).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5- Authentication for user credentials.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6- If authentication fails, then offer to create new account.
 
-## Learn More
+7- Once user successfully logs in, WELCOME message displays instructing user on how to further proceed.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+8- Simultaneously a LOGOUT button is displayed. Also display a RESET btn which clears all fields should the user wish to clear the input data and start over.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+9- After authentication, User is now able to enter OJT candidate's name and all related info (so far 15 fields).
 
-### Code Splitting
+10- Status should feature dropdown with these selections: Pending, Active, Inactive. (Pending means the candidate has not yet completed PCC but is expected to do so and is awaiting release in order to begin OJT. Active means candidate is currently in the 6-wk OJT process. Inactive means candidate began OJT but for some reason has not completed).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+11- This is an additional field to be added: Graduated: Yes or No. (Has candidate graduated the Persevere Boot Camp or not?)
 
-### Analyzing the Bundle Size
+12- State field features dropdown with all 50 states.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+13- Date fields feature datepicker.
 
-### Making a Progressive Web App
+14- Phone number validation to update as the user is typing fields. Input must follow Telephone Number format. See: https://stackoverflow.com/questions/69583442/phone-number-validation-in-react-js-how-to-limit-type-and-length-of-input Also: https://stackoverflow.com/questions/63387992/validating-telephone-number-in-regex-in-react
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+15- Use email validation. See: https://www.geeksforgeeks.org/how-to-validate-an-email-in-reactjs/#:~:text=Email%20validation%20is%20an%20important%20step%20in%20every,not%20using%20the%20npm%20module%20in%20React%20Application.
 
-### Advanced Configuration
+16- Input fields for TES, Case Manager, and Work Buddy should feature dropdowns allowing choice of appropriate staff members.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+17- For now, Rubric input field is for a url that points to Shandea's spreadsheet that holds sensitive information. Only the Transition Coordinator and her seniors should have access to this, so configure security settings accordingly.
 
-### Deployment
+18- Once all fields are populated, user selects ADD btn and a card representing the candidate is displayed featuring all input fields.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+19- Each card is unique to the candidate.
 
-### `npm run build` fails to minify
+20- To create a new entry, POST request is needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+21- To display info from a previous entry, GET request is needed.
+
+22- To update a candidate's info, PUT/PATCH request is needed.
+
+23- React hooks should replace current methods.
+
+24- Functionality should be prompt and sharp.
+
+25- UI should be simple, intuitive, and follow the Banyan-Persevere color scheme.
+
+26- This is the basic model which mirrors Shandea's current format. Once this version is accomplished consider next iteration to include fields requested by TES & Case Managers (i.e., Status of Resume, Status of Job Search, Developer Goals & Challenges).
