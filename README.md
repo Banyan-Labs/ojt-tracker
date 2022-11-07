@@ -2,7 +2,25 @@
 
 ## Development
 
-Clone repo and install node modules
+Clone repo, create docker image and install node modules
+
+*note:* docker cli is required, for more info for install docker on windows os, [click link here](https://docs.docker.com/desktop/install/windows-install/)
+
+to create docker image for MongoDB run command from root directory
+
+```bash
+docker-compose up -d
+```
+
+*note:* this repo contains two package json, one at root level and one nested in the `client` folder.
+
+In order to install all nessary dependencies run both commands from root direcctory
+
+```bash
+npm install
+
+npm run install-client-dep
+```
 
 to start just development backend server run command
 
@@ -24,7 +42,7 @@ to start full-stack development run command
 npm run dev
 ```
 
-this repo also need a `.env`, contact admin for file
+this repo also needs a `.env` file, contact admin for file
 
 ## Project goals
 
